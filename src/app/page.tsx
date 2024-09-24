@@ -1,20 +1,32 @@
-// app/page.tsx
-"use client";
+"use client"; // This directive is required when using hooks in Next.js 13+
 
 import React, { useState } from "react";
 
-
-
 const JokeGenerator = () => {
   const [joke, setJoke] = useState<string>("Click the button to get a random joke!");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const fetchJoke = async () => {
+    setLoading(true);
     try {
-      const response = await fetch("https://official-joke-api.appspot.com/jokes/random");
+      const response = await fetch("https://icanhazdadjoke.com/", {
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch a joke.");
+      }
+
       const data = await response.json();
-      setJoke(`${data.setup} ${data.punchline}`);
-    } catch (error) {
+      setJoke(data.joke);
+    } catch (err) {
+      // Handle the error gracefully, for example:
+      console.error("An error occurred while fetching the joke:", err);
       setJoke("Oops! Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -24,13 +36,13 @@ const JokeGenerator = () => {
         <h1>Random Joke Generator</h1>
       </header>
       <main className="main">
-        <p className="joke">{joke}</p>
-        <button onClick={fetchJoke} className="button">
-          Get a New Joke
+        <div className="joke">{joke}</div>
+        <button className="button" onClick={fetchJoke} disabled={loading}>
+          {loading ? "Loading..." : "Get a New Joke"}
         </button>
       </main>
       <footer className="footer">
-        &copy; All rights reserved. Random Joke Generator by Yemna Mehmood.
+        © {new Date().getFullYear()} All rights reserved. Random Joke Generator by Yemna Mehmood
       </footer>
     </div>
   );

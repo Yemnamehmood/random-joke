@@ -1,4 +1,8 @@
 
+# Random Joke Generator
+
+
+## Description
 
 **Random Joke Generator** is a fun and interactive web application designed to fetch and display random jokes. Developed using Next.js and TypeScript, this project provides users with an engaging experience through a visually appealing interface and a dark-themed design. With just a click of a button, users can enjoy a new joke, making it perfect for sharing laughs or lightening the mood.
 
@@ -18,10 +22,11 @@
 
 ## Getting Started
 
+### Prerequisites
+
 To run this project, you need to have the following installed:
 
 - Node.js (version 14 or above)
-
 
 ### Installation
 
@@ -33,7 +38,6 @@ To run this project, you need to have the following installed:
 ### Usage
 
 Open your web browser and go to `http://localhost:3000` to start using the Random Joke Generator. Click the button to fetch and display a new joke.
-
 
 ## Acknowledgments
 

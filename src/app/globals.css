@@ -1,27 +1,113 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* styles/global.css */
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif; /* Modern and stylish font */
+  background: linear-gradient(135deg, #2e2e38 0%, #4e4376 55%, #2b2d42 100%);
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.container {
+  text-align: center;
+  padding: 20px;
+  background-color: #1c1c24;
+  border-radius: 16px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+  width: 90%;
+  margin: 20px;
+  transition: all 0.3s ease;
+}
+
+.header h1 {
+  margin: 0;
+  padding-bottom: 10px;
+  color: #9b5de5; /* Lavender-violet color for a stylish touch */
+  font-size: 36px;
+  font-weight: bold;
+  border-bottom: 3px solid #9b5de5;
+}
+
+.main {
+  margin: 20px 0;
+}
+
+.joke {
+  font-size: 20px;
+  line-height: 1.8;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #2a2a35;
+  border-left: 5px solid #6a0572; /* Dark violet border */
+  border-radius: 10px;
+  word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #c7c7d0; /* Soft lavender text color */
+}
+
+.joke::before {
+  content: "😂 ";
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.button {
+  background-color: #6a0572;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+  outline: none;
+}
+
+.button:hover {
+  background-color: #4a044e;
+  transform: translateY(-3px);
+}
+
+.footer {
+  margin-top: 20px;
+  padding: 10px 0;
+  font-size: 14px;
+  color: #888;
+  border-top: 1px solid #444;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+  .container {
+    max-width: 95%;
+    padding: 15px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .joke {
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  .button {
+    padding: 10px 25px;
+    font-size: 16px;
+  }
+
+  .footer {
+    font-size: 12px;
   }
 }
